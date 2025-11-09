@@ -1,0 +1,6 @@
+
+train: detection_dataset/images/train
+val: detection_dataset/images/val
+
+nc: 3
+names: ['name', 'uid', 'address']

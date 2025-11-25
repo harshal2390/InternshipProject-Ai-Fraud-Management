@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aadhaar Fraud Detection System - Home</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-color: #0a2647;
+        --secondary-color: #144272;
+        --accent-color: #205295;
+        --text-light: #ffffff;
+        --bg-light: #f8fafc;
+        --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        background-color: var(--bg-light);
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+      }
+
+      .navbar {
+        background: var(--primary-color);
+        padding: 1rem 0;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .nav-link {
+        color: var(--text-light) !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem !important;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+      }
+
+      .hero-section {
+        background: url("{{ url_for('static', filename='image/d.jpg') }}")
+          center/cover no-repeat;
+        color: var(--text-light);
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 38, 71, 0.7);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .display-4 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        font-size: 3.2rem;
+      }
+
+      .lead {
+        font-size: 1.25rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        opacity: 0.9;
+      }
+
+      .btn-custom {
+        padding: 0.8rem 2rem;
+        font-weight: 600;
+        border-radius: 8px;
+        background: var(--accent-color);
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .btn-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        background: var(--secondary-color);
+      }
+
+      .feature-card {
+        background: lightgoldenrodyellow;
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
+        height: 100%;
+        box-shadow: var(--card-shadow);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-card i {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card h4 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .feature-card p {
+        color: #64748b;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent-color);
+      }
+
+      .integration-section {
+        background: white;
+        padding: 5rem 0;
+      }
+
+      .integration-card {
+        background: lightgoldenrodyellow;
+        border-radius: 16px;
+        padding: 2rem;
+        height: 100%;
+        box-shadow: var(--card-shadow);
+        transition: all 0.3s ease;
+      }
+
+      .integration-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .integration-card h5 {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .integration-card i {
+        color: var(--accent-color);
+        font-size: 1.5rem;
+      }
+
+      .integration-card p {
+        color: #64748b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand">
+          <i class="bi bi-shield-check me-2"></i>Aadhaar Fraud Detection
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/upload"
+                ><i class="bi bi-upload me-2"></i>Upload</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/analytics"
+                ><i class="bi bi-bar-chart me-2"></i>Analytics</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-section text-center">
+      <div class="container hero-content">
+        <h1 class="display-4">Aadhaar Fraud Detection System</h1>
+        <p class="lead">
+          Enhance security and reliability in UID Aadhaar verification with our
+          advanced AI-powered solution
+        </p>
+        <a href="/upload" class="btn btn-lg btn-custom">
+          <i class="bi bi-arrow-right-circle me-2"></i>Get Started
+        </a>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center section-title">Key Features</h2>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="feature-card text-center">
+              <i class="bi bi-cpu"></i>
+              <h4>AI Models</h4>
+              <p>
+                Advanced AI-powered detection using OCR, classification, and
+                detection models
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="feature-card text-center">
+              <i class="bi bi-lightning"></i>
+              <h4>Efficiency</h4>
+              <p>
+                Automated document verification for quick and accurate results
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="feature-card text-center">
+              <i class="bi bi-shield-check"></i>
+              <h4>Security</h4>
+              <p>Enhanced security measures to protect sensitive information</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="feature-card text-center">
+              <i class="bi bi-gear"></i>
+              <h4>Convenient</h4>
+              <p>User-friendly interface for seamless document processing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="integration-section">
+      <div class="container">
+        <h2 class="text-center section-title">Integration Possibilities</h2>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="integration-card">
+              <h5><i class="bi bi-building me-2"></i>Government Agencies</h5>
+              <p>Seamless integration with government security systems</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="integration-card">
+              <h5><i class="bi bi-person-badge me-2"></i>E-KYC Providers</h5>
+              <p>Enhanced verification process with Aadhaar integration</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="integration-card">
+              <h5><i class="bi bi-bank me-2"></i>Banking Sector</h5>
+              <p>Secure authentication for financial transactions</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="integration-card">
+              <h5><i class="bi bi-people me-2"></i>Corporate HR</h5>
+              <p>Streamlined employee verification process</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
